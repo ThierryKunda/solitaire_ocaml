@@ -24,11 +24,9 @@ let affiche_tas tas =
 
    (* Help_solitaire.affiche_tas tas *)
 
-let rec aux l n =
-   if n = 0 then zone_vide
-   else (string_of_carte (List.nth l (n-1))) ^ (aux l (n-1)) in
-let taille = List.length tas in
-aux (List.rev tas) taille
+if (List.length tas) = 0 then
+   Printf.printf "%s" zone_vide
+else Printf.printf "%s" (string_of_carte (List.nth tas 0))
 ;;
 
 (* Q2
