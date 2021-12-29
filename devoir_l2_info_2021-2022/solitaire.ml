@@ -549,5 +549,12 @@ let victoire jeu =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.victoire jeu
+   let sont_taile_13 = 
+      List.length jeu.coeur = 13 &&
+      List.length jeu.pique = 13 &&
+      List.length jeu.carreau = 13 &&
+      List.length jeu.trefle = 13
+   in
+
+   (List.length jeu.pioche) = 0 && (List.length jeu.defausse) = 0 && sont_taile_13
 ;;
