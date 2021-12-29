@@ -95,7 +95,10 @@ let affiche_pioche pioche =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.affiche_pioche pioche
+   (* Help_solitaire.affiche_pioche pioche *)
+
+   if (List.length pioche) = 0 then Printf.printf "%s" zone_vide
+   else Printf.printf "%s" carte_cachee
 ;;
 
 
