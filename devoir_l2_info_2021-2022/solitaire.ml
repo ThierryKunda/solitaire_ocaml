@@ -57,7 +57,30 @@ let affiche_piles piles =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.affiche_piles piles
+   (* Help_solitaire.affiche_piles piles *)
+
+   let string_of_visibles cartes =
+      let rec aux crts n =
+         let crts_rev = List.rev crts in
+         if n = 0 then ""
+         else (string_of_carte (List.nth crts_rev (n-1))) ^ " " ^ (aux crts (n-1))
+      in
+      aux cartes (List.length cartes)
+   in
+   
+   let string_of_cachees (cartes:carte list) =
+      let rec aux crts n =
+         if n = 0 then ""
+         else carte_cachee ^ " " ^ (aux crts (n-1))
+      in
+      aux cartes (List.length cartes)
+   in
+
+   let affiche_pile i p =
+      Printf.printf "%d : %s\n\n" (i+1) ((string_of_visibles (fst p)) ^ (string_of_cachees (snd p)))
+   in
+
+   List.iteri affiche_pile piles
 ;;
 
 (* Q3
