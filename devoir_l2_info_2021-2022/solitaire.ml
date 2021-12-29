@@ -121,7 +121,22 @@ let affiche_jeu jeu =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.affiche_jeu jeu
+   (* Help_solitaire.affiche_jeu jeu *)
+
+   affiche_tas jeu.coeur;
+   Printf.printf "  ";
+   affiche_tas jeu.pique;
+   Printf.printf "  ";
+   affiche_tas jeu.trefle;
+   Printf.printf "  ";
+   affiche_tas jeu.carreau;
+   Printf.printf "    ";
+   affiche_tas jeu.defausse;
+   Printf.printf " ";
+   affiche_pioche jeu.pioche;
+   Printf.printf "\n\n";
+   affiche_piles jeu.piles;
+   Printf.printf "\n";
 ;;
 
 
