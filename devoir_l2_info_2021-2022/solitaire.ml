@@ -156,7 +156,16 @@ let init_cartes couleur =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.init_cartes couleur
+   (* Help_solitaire.init_cartes couleur *)
+   
+   let rec init_aux col vals n =
+      let vals_rev = List.rev valeurs in
+      if n = 0 then []
+      else ({couleur = couleur; valeur = List.nth vals_rev (n-1)}) :: init_aux col vals (n-1)
+   in
+
+   init_aux couleur valeurs (List.length valeurs)
+   
 ;;
 
 (* Le paquet de carte initiale, où les 13 cartes de chaque couleur sont présentes dans l'ordre *)
