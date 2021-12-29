@@ -187,7 +187,18 @@ let melange paquet =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.melange paquet
+   (* Help_solitaire.melange paquet *)
+   let rec liste_paire_aleat liste n =
+      if n = 0 then []
+      else (Random.int 1000, List.nth liste (n-1)) :: (liste_paire_aleat liste (n-1))
+   in
+
+   let tri liste = List.sort compare liste in
+
+   let extract liste = List.map (fun x -> snd x) liste in
+
+   extract (tri (liste_paire_aleat paquet (List.length paquet)))
+   
 ;;
 
 (* Q7
