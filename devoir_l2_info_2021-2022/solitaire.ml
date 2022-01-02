@@ -284,7 +284,30 @@ let rec pioche jeu =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.pioche jeu
+   (* Help_solitaire.pioche jeu *)
+   if List.length jeu.defausse = 0 && List.length jeu.pioche = 0 then failwith "pioche: plus de carte à piocher"
+   else if List.length jeu.pioche = 0 then
+      let nv_jeu = {
+         coeur = jeu.coeur;
+         pique = jeu.pique;
+         carreau = jeu.carreau;
+         trefle = jeu.trefle;
+         piles = jeu.piles;
+         pioche = List.rev jeu.pioche;
+         defausse = [];
+      } in
+      pioche nv_jeu
+   else
+      let nv_jeu = {
+            coeur = jeu.coeur;
+            pique = jeu.pique;
+            carreau = jeu.carreau;
+            trefle = jeu.trefle;
+            piles = jeu.piles;
+            pioche = List.tl jeu.pioche;
+            defausse = List.hd jeu.pioche :: jeu.defausse;
+         } in
+      nv_jeu
 ;;
 
 (* Q10
