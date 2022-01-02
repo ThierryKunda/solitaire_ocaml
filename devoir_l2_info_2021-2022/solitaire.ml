@@ -346,7 +346,13 @@ let valeur_suivante v =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.valeur_suivante v
+   (* Help_solitaire.valeur_suivante v *)
+
+   match v with
+      | Roi -> failwith "valeur_suivante: appel sur un roi"
+      | Dame -> Roi
+      | Valet -> Dame
+      | Valeur n -> Valeur (n+1)
 ;;
 
 (* Q12
