@@ -382,7 +382,9 @@ let est_suivante_couleur_diff c suiv =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.est_suivante_couleur_diff c suiv
+   (* Help_solitaire.est_suivante_couleur_diff c suiv *)
+
+   c.couleur <> suiv.couleur && (valeur_suivante c.valeur) = suiv.valeur
 ;;
 
 (* Q14
