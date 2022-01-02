@@ -464,8 +464,11 @@ let rec nieme l n =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.nieme l n
-;;
+   (* Help_solitaire.nieme l n *)
+
+  if (List.length l) < (n-1) then failwith "nieme: pas assez d'éléments"
+  else if n = 0 then List.hd l
+  else nieme (List.tl l) (n-1)
 
 (* Q17
    remplace_nieme: 'a list -> int -> 'a -> 'a list
