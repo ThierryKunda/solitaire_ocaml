@@ -429,7 +429,21 @@ let retire_defausse jeu =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.retire_defausse jeu
+   (* Help_solitaire.retire_defausse jeu *)
+
+   if List.length jeu.defausse = 0 then failwith "retire_defausse: pas de carte"
+   else
+      let nv_jeu = {
+         coeur = jeu.coeur;
+         pique = jeu.pique;
+         carreau = jeu.carreau;
+         trefle = jeu.trefle;
+         piles = jeu.piles;
+         pioche = jeu.pioche;
+         defausse = List.tl jeu.defausse;
+      }
+      in
+      List.hd jeu.defausse, nv_jeu
 ;;
 
 (* Q16
