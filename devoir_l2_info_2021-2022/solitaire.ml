@@ -322,7 +322,17 @@ let couleur_compatible c1 c2 =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.couleur_compatible
+   (* Help_solitaire.couleur_compatible *)
+   match c1, c2 with
+      | Pique, Coeur -> true
+      | Pique, Carreau -> true
+      | Trefle, Coeur -> true
+      | Trefle, Carreau -> true
+      | Coeur, Pique -> true
+      | Carreau, Pique -> true
+      | Coeur, Trefle -> true
+      | Carreau, Trefle -> true
+      | _ -> false
 ;;
 
 (* Q11 renvoie la valeur suivante à celle donnée en argument.
