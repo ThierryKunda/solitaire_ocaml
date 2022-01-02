@@ -406,7 +406,11 @@ let cherche_index_pour_suivante tas suiv =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.cherche_index_pour_suivante tas suiv
+   (* Help_solitaire.cherche_index_pour_suivante tas suiv *)
+   let tas_pos = List.mapi (fun i carte -> (i+1, carte)) tas in
+   let tas_suivants = List.filter (fun carte_pos -> est_suivante_couleur_diff (snd carte_pos) suiv) tas_pos in
+   if (List.length tas_suivants) = 0 then 0
+   else fst (List.nth tas_suivants 0)
 ;;
 
 (* Q15
