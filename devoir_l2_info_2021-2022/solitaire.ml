@@ -504,7 +504,13 @@ let decouvre pile =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.decouvre pile
+   (* Help_solitaire.decouvre pile *)
+
+   match pile with
+      | (l1, e :: ll2) -> if l1 = [] && (e :: ll2) <> [] then e :: l1, ll2
+         else l1, (e :: ll2)
+      | _ -> pile
+
 ;;
 
 (* Q19 :
