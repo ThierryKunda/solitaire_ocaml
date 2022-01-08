@@ -582,9 +582,9 @@ let pile_vers_pile jeu n1 n2 =
 (* Q20:
    Pour chacune des fonctions suivantes, donner son type dans le commentaire ci-dessous :
 
-   tas_par_couleur : REMPLACER PAR LE TYPE
-   range_tas_par_couleur : REMPLACER PAR LE TYPE
-   range_carte : REMPLACER PAR LE TYPE
+   tas_par_couleur : int -> couleur -> carte list
+   range_tas_par_couleur : jeu -> carte -> carte list -> jeu
+   range_carte : jeu -> carte -> jeu
 
    0.75 point
 *)
