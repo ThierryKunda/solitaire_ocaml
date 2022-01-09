@@ -417,16 +417,7 @@ let retire_defausse jeu =
 
    if List.length jeu.defausse = 0 then failwith "retire_defausse: pas de carte"
    else
-      let nv_jeu = {
-         coeur = jeu.coeur;
-         pique = jeu.pique;
-         carreau = jeu.carreau;
-         trefle = jeu.trefle;
-         piles = jeu.piles;
-         pioche = jeu.pioche;
-         defausse = List.tl jeu.defausse;
-      }
-      in
+      let nv_jeu = { jeu with defausse = List.tl jeu.defausse } in
       List.hd jeu.defausse, nv_jeu
 ;;
 
