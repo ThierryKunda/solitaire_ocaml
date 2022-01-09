@@ -450,9 +450,10 @@ let rec nieme l n =
 
    (* Help_solitaire.nieme l n *)
 
-  if (List.length l) < (n-1) then failwith "nieme: pas assez d'éléments"
-  else if n = 0 then List.hd l
-  else nieme (List.tl l) (n-1)
+  match l, n with
+   | [], _ -> failwith "nieme: pas assez d'éléments"
+   | e :: ll, 0 -> e
+   | e :: ll, n -> nieme ll (n-1)
 
 (* Q17
    remplace_nieme: 'a list -> int -> 'a -> 'a list
