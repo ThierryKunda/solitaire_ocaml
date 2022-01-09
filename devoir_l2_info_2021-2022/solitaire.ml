@@ -236,7 +236,7 @@ let rec n_premieres paquet n =
 
    La fonction est donnée, ne pas la modifier.
    Question : Quel est le type de la fonction interne 'init_pile' ?
-   Réponse : REMPLACER ICI PAR LE TYPE 
+   Réponse : list -> (list * list)
 
    0.5 point
 *)
