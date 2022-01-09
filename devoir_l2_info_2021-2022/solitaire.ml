@@ -544,7 +544,20 @@ let defausse_vers_pile jeu n =
 (* Commentez la ligne ci-dessous et mettez votre code.
    Si votre code ne fonctionne pas, commentez le et remettez cette ligne. *)
 
-   Help_solitaire.defausse_vers_pile jeu n
+   (* Help_solitaire.defausse_vers_pile jeu n *)
+
+   let crt_defausse = fst (retire_defausse jeu) in
+   let nieme_pile = nieme jeu.piles n in
+   let ajt_val_p l n v = v :: fst (nieme l n), snd (nieme l n) in
+   
+   let ajoute_valeur_pile jeu n_ieme v = {jeu with piles = remplace_nieme jeu.piles n_ieme (ajt_val_p jeu.piles n_ieme v)} in
+
+   match nieme_pile with
+   | [], [] -> if crt_defausse.valeur = Roi then ajoute_valeur_pile jeu n crt_defausse
+      else failwith "defausse_vers_pile: non-roi sur une case vide"
+   | e :: ll, _ -> if est_suivante_couleur_diff crt_defausse e then ajoute_valeur_pile jeu n crt_defausse
+      else failwith "defausse_vers_pile: déplacement invalide"
+   | [], _ -> ajoute_valeur_pile jeu n crt_defausse
 ;;
 
 (* pile_vers_pile: jeu -> int -> int -> jeu.
