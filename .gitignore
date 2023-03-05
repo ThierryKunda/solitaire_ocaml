@@ -1,2 +1,5 @@
-*.c*
+solitaire.cmo
+main.c*
+solitaire_defs.c*
+solitaire.c*
 *.exe
